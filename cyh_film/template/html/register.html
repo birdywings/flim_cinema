@@ -1,0 +1,165 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.validate.min.js' %}"></script>
+
+    <style>
+        body{
+            background: url("{{ MEDIA_URL }}images/login2jpg.jpg") no-repeat;
+            background-size:cover;font-size: 16px;
+        }
+        .form{
+            background: rgba(255,255,255,0.2);
+            width:400px;
+            margin:100px auto;
+
+        }
+        #login_form{
+            display: block;
+        }
+        #register_form{
+            display: none;
+        }
+        .yh{
+
+            top: 30px;left: 6px;
+            position: relative;
+            color: #ccc;
+        }
+        .container{
+            top: 600px;
+        }
+        input[type="text"],input[type="password"]{
+            padding-left:26px;
+        }
+        .logo{
+            position: relative;
+            float: left;
+            left: 150px;
+            margin-top: 13px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <a href="homepage.html"> <img src="{{ MEDIA_URL }}images/logo1.png" width="100px" height="50px"/></a>
+        </div>
+        <div class="form row">
+            <form class="form-horizontal col-sm-offset-3 col-md-offset-3" id="login_form" role="form" action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                <h3 class="form-title">登陆账号</h3>
+                <div class="col-sm-9 col-md-9">
+                    <div class="form-group">
+                        <span class="glyphicon glyphicon-user yh"></span>
+                        <input class="form-control required" type="text" name="username"  placeholder="账号" autofocus="autofocus" maxlength="20">
+                    </div>
+                    <div class="form-group">
+                        <span class="glyphicon glyphicon-lock yh"></span>
+                        <input class="form-control required" type="password" name="password" placeholder="密码" autofocus="autofocus" maxlength="8">
+                    </div>
+                    <div class="form-group">
+                        <hr/>
+                        <a href="javascript:;" id="register_btn" class="">创建新的账号</a>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-success pull-right" value="Login"/>
+                    </div>
+                </div>
+            </form>
+            <span style="color: red;">{{ alert }}</span>
+        </div>
+        <div class="form row">
+            <form class="form-horizontal col-sm-offset-3 col-md-offset-3" id="register_form" role="form" action="{% url 'register' %}" method="POST">
+                {% csrf_token %}
+                <h3 class="form-title">创建您的账号</h3>
+                <div class="col-sm-9 col-md-9">
+                    <div class="form-group">
+                        <span class="glyphicon glyphicon-user yh"></span>
+                        <input class="form-control required" type="text" name="username" placeholder="账号" autofocus="autofocus"/>
+                    </div>
+                    <div class="form-group">
+                        <span class="glyphicon glyphicon-lock yh"></span>
+                        <input class="form-control required"type="password" name="password" placeholder="密码" autofocus="autofocus" maxlength="8">
+                    </div>
+                    <div class="form-group">
+                        <span class="glyphicon glyphicon-envelope yh"></span>
+                        <input class="form-control eamil" type="text" placeholder="邮箱" name="email"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-success pull-right" value="注册 "/>
+                        <input type="submit" class="btn btn-info pull-left" id="back_btn" value="返回"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+<script type="text/javascript">
+
+    $().ready(function() {
+        $("#login_form").validate({
+            rules: {
+                username: "required",
+                password: {
+                    required: true,
+                    minlength: 5
+                },
+            },
+            messages: {
+                username: "请输入姓名",
+                password: {
+                    required: "请输入密码",
+
+                },
+            }
+        });
+        $("#register_form").validate({
+            rules: {
+                username: "required",
+                password: {
+                    required: true,
+                    minlength: 5
+                },
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                username: "请输入姓名",
+                password: {
+                    required: "请输入密码",
+
+                },
+                rpassword: {
+                    equalTo: "两次密码不一样"
+                },
+                email: {
+                    required: "请输入邮箱",
+                    email: "请输入有效邮箱"
+                }
+            }
+        });
+    });
+    $(function() {
+        $("#register_btn").click(function() {
+            $("#register_form").css("display", "block");
+            $("#login_form").css("display", "none");
+        });
+        $("#back_btn").click(function() {
+            $("#register_form").css("display", "none");
+            $("#login_form").css("display", "block");
+        });
+    });
+
+</script>
+</body>
+</html>

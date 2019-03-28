@@ -1,0 +1,307 @@
+@charset "UTF-8";
+
+body{
+
+    font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
+    color: #666;
+    /*background: rgba(25,42,255,0.85);*/
+}
+
+.navbar-default{
+    background: #ffffff;
+}
+
+.glyphicon{
+    color: red;
+}
+.thumbnail-p{
+	
+}
+.navbar-default .navbar-toggle {
+    border-color: red;
+}
+
+.icon-bar{
+    color: red;
+    background: red;
+
+}
+
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: red;
+}
+
+#mycarousel{
+ margin-top: 50px;
+}
+.carousel-inner img{
+
+    margin: 0 auto;
+}
+.tab1{
+    color: #666666;
+}
+
+.tab1-h2{
+    margin-top: 30px;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: red;
+}
+.tab1-p{
+    text-align: center;
+    color: #999;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin: 20px 0 40px 0;
+}
+
+.tab1 .text-muted{
+
+    text-decoration: line-through;
+    color:#999;
+}
+.tab1 .media-heading{
+    margin: 5px 0 20px 0;
+}
+.tab1 .col{
+
+    padding: 20px 0;
+}
+
+.tab2{
+    background: rgba(255,73,41,0.85);
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+.tab3{
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
+
+.tab2 .auto{
+    width: 40%;
+    height: 40%;
+
+}
+
+.tab3 .auto{
+    width: 60%;
+    height: 60%;
+}
+
+.tab2 h4,.tab3 h4{
+
+    font-size:20px;
+    color:black;
+    padding: 0px;
+    margin-bottom: 20px;
+
+
+}
+
+.tab2 p,.tab3 p{
+
+    font-size: 14px;
+
+}
+
+.a{
+    margin-left: 50px;
+}
+
+footer {
+    background-color: darkgray;
+    border-top: 1px solid #ccc;
+    padding: 20px 0 10px 0;
+    text-align: center;
+    color: #eee;
+}
+
+.jumbotron{
+    margin-top: 50px;
+    margin-bottom: 0px;
+    color: #cccccc;
+}
+
+.jumbotron h1{
+    font-size: 28px;
+    padding-left: 20px;
+    margin-bottom:20px;
+}
+
+
+
+.jumbotron h4{
+    font-size: 18px;
+    padding-left: 20px;
+
+}
+
+.information{
+    background: #eeeeee;
+    padding: 40px 20px;
+
+
+}
+
+.information-context{
+
+    background: #ffffff;
+    margin-top: 20px;
+    box-shadow: 2px 2px 3px #ccc;
+    margin-top: 0;
+
+}
+.information-context img{
+    margin: 20px 0px;
+}
+
+
+.information-context h4{
+
+    font-size: 16px;
+    color: #333;
+    padding: 10px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.information-context p{
+    line-height: 1.8;
+}
+@media (min-width: 400px) {
+    .tab1-h2{
+        font-size: 24px;
+
+    }
+
+    .tab1-p{
+        font-size: 14px;
+    }
+
+    .tab2 h4,.tab3 h4{
+        font-size: 24px;
+    }
+    .tab2 p,.tab3 p{
+        font-size: 14px;
+    }
+    .imgDiv{
+        float: right;
+    }
+
+    .jumbotron h1{
+        font-size: 16px;
+    }
+    .jumbotron h4{
+
+        font-size: 10px;
+    }
+
+    .information-context h4{
+
+        font-size: 18px;
+    }
+}
+@media (min-width: 768px) {
+    .tab1-h2{
+        font-size: 24px;
+
+    }
+
+    .tab1-p{
+        font-size: 14px;
+    }
+
+    .tab2 h4,.tab3 h4{
+        font-size: 24px;
+    }
+    .tab2 p,.tab3 p{
+        font-size: 14px;
+    }
+    .imgDiv{
+        float: right;
+    }
+
+    .jumbotron h1{
+        font-size: 20px;
+    }
+    .jumbotron h4{
+
+        font-size: 12px;
+    }
+
+    .information-context h4{
+
+        font-size: 18px;
+    }
+}
+
+@media (min-width:992px) {
+    .tab1-h2{
+        font-size: 26px;
+
+    }
+
+    .tab1-p{
+        font-size: 16px;
+    }
+
+    .tab2 h4,tab3 h4{
+        font-size: 26px;
+    }
+    .tab2 p,tab3 p{
+        font-size: 15px;
+    }
+
+    .jumbotron h1{
+        font-size: 24px;
+    }
+    .jumbotron h4{
+
+        font-size: 16px;
+    }
+    .information-context h4{
+
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .tab1-h2{
+        font-size: 30px;
+    }
+
+    .tab1-p{
+        font-size: 18px;
+    }
+
+     .tab2 h4,tab3 h4{
+         font-size: 34px;
+     }
+     .tab2 p,.tab3 p{
+         font-size: 16px;
+     }
+
+     .jumbotron h1{
+         font-size: 24px;
+     }
+     .jumbotron h4{
+
+         font-size: 18px;
+     }
+
+    .information-context h4{
+
+        font-size: 20px;
+    }
+}
+
+
+

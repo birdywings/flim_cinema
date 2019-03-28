@@ -1,0 +1,993 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <style>
+        .window {
+
+        }
+
+        .g-header {
+            width: 100%;
+            position: absolute;
+            z-index: 2;
+        }
+
+        .bat {
+            position: relative;
+            float: left;
+            left: 150px;
+            margin-top: 13px;
+        }
+
+        .g-so {
+            position: relative;
+            float: left;
+            height: 38px;
+            margin: 16px;
+            left: 460px;
+
+        }
+
+        .g-so-box {
+            height: 38px;
+            position: relative;
+        }
+
+        #headq {
+            width: 250px;
+            float: left;
+            height: 38px;
+            padding: 8px 12px 8px 18px;
+            outline: 0 none;
+            font-size: 14px;
+            line-height: 38px;
+            background: rgba(255, 255, 255, 0.3);
+            border-top-left-radius: 19px;
+            border-bottom-left-radius: 19px;
+            cursor: text;
+
+        }
+
+        #btn {
+            position: absolute;
+            width: 80px;
+            height: 38px;
+            line-height: 38px;
+            top: 0;
+            padding: 0;
+            text-align: center;
+            font-size: 13px;
+            outline: 0;
+            cursor: pointer;
+            border: 0 none;
+            border-top-right-radius: 19px;
+            border-bottom-right-radius: 19px;
+            background: #262626;
+            color: #FFEABF;
+        }
+
+        .g-ucenter {
+            position: absolute;
+            left: 1200px;
+            float: right;
+            margin-top: 20px;
+            height: 70px;
+        }
+
+        .user {
+            float: left;
+            width: 40px;
+            height: 70px;
+            margin-right: 30px;
+        }
+
+        .collect {
+            float: left;
+            width: 40px;
+            height: 70px;
+            margin-right: 30px;
+        }
+
+        .history {
+            float: left;
+            width: 40px;
+            height: 70px;
+            margin-right: 30px;
+        }
+
+        .s-body {
+            width: 100%;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        #carouselMenu {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 600px;
+        }
+
+        #carouselMenu img {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 600px;
+        }
+
+        .mod {
+            margin-top: 20px;
+            width: 100%;
+            margin-left: 20px;
+        }
+
+        li {
+            list-style: none;
+
+        }
+
+        .nav-guide {
+            float: left;
+        }
+
+        .nav-group {
+            width: 250px;
+            position: relative;
+            float: left;
+            margin-right: 20px;
+            border-right: 2px solid #666;
+            height: 50px;
+        }
+
+        .channel1 {
+            display: inline-block;
+            position: relative;
+            min-width: 100px;
+            text-align: center;
+            margin-top: 3px;
+            margin-bottom: 5px;
+            margin-right: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .channel1 a {
+            color: #666;
+        }
+
+        .channel1 a:hover {
+            color: #9acfea;
+            text-decoration: none;
+        }
+
+        .glyphicons_group :hover {
+            color: #9acfea;
+            text-decoration: none;
+        }
+
+        .glyphicons_group {
+
+            float: left;
+        }
+
+        .glyphicons_group a {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .glyphicons_group span {
+            font-size: 30px;
+            color: #666;
+            margin-right: 10px;
+        }
+
+        .glyphicons_group div {
+            float: left;
+            margin-left: 90px;
+        }
+
+        .m_1 {
+            float: left;
+        }
+
+        .m_2 {
+            width: 90%;
+            float: left;
+            margin-top: 20px;
+            margin-left: 66px;
+        }
+
+        .m_2 img {
+            width: 120px;
+            margin: 20px;
+        }
+
+        .film {
+            float: left;
+        }
+
+        .film p {
+            color: #666;
+            margin-top: -5px;
+            text-align: center;
+        }
+
+        .m_3 {
+            width: 90%;
+            float: left;
+            margin-top: 20px;
+            margin-left: 66px;
+        }
+
+        .m_3 img {
+            width: 120px;
+            margin: 20px;
+        }
+
+        .m_4 {
+            width: 90%;
+            float: left;
+            margin-top: 20px;
+            margin-left: 66px;
+        }
+
+        .m_4 img {
+            width: 120px;
+            margin: 20px;
+        }
+
+        .m_5 {
+            width: 90%;
+            float: left;
+            margin-top: 20px;
+            margin-left: 66px;
+        }
+
+        .m_5 img {
+            width: 120px;
+            margin: 20px;
+        }
+
+        .f {
+            width: 90%;
+            margin-top: 20px;
+            float: left;
+            margin-left: 60px;
+            border-top: 1px solid #c9e2b3;
+        }
+
+        .about {
+            float: left;
+            padding-right: 200px;
+        }
+
+        .about p {
+            margin-top: 30px;
+            font-size: 25px;
+            line-height: 28px;
+            color: #666;
+        }
+
+        .about a {
+            font-size: 15px;
+            color: #666;
+        }
+
+        .about li {
+            margin-bottom: 5px;
+        }
+
+        .m-footer {
+            float: left;
+        }
+
+        .footer-1 {
+            width: 100%;
+            float: left;
+        }
+
+        .footer_web a {
+            text-align: center;
+            border-right: 1px solid #666;
+            padding-right: 6px;
+            color: #666;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .footer_web {
+            margin-left: 600px;
+            margin-top: 20px;
+            line-height: 20px;
+        }
+
+        .copyright {
+            font-size: 12px;
+            margin-left: 560px;
+            color: #666;
+        }
+    </style>
+
+</head>
+<body>
+
+<!-- 登陆结果-->
+{% if username %}
+    <span>{{ username }}</span>
+    <a href="{% url 'logout' %}">
+    <button id="logout" >注销</button>
+    </a>
+{% endif %}
+
+
+<!-- 搜索结果-->
+<div class="container">
+    {% if query %}
+        <br/>
+        <hr/>
+        <text>搜索的关键词:<text style="font-size: 22px; color: #0f0f0f;">{{ query }}</text>的结果如下:</text>
+        {% if film_query %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="row">
+                            {% for film in film_query %}
+                                <div class="col-sm-2 col-md-2 col-xs-4">
+                                    <div class="thumbnail" style="min-height: 80px;max-height: 200px;">
+                                        <img src="{{ MEDIA_URL }}{{ film.cover }}" alt="{{ film.name }}"
+                                             style="min-height: 80px;max-height: 150px;">
+                                        <div class="caption">
+                                            <a href="{% url 'play' film.pk %}"><p
+                                                    align="center">{{ film.name }}</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <text> 没搜索到任何结果！</text>
+        {% endif %}
+        <br/>
+        <hr/>
+    {% endif %}
+</div>
+
+<div class="window">
+    <div class="g-header">
+        <div class="bat">
+            <img src="{{ MEDIA_URL }}images/logo1.png" width="100px" height="50px"/>
+        </div>
+        <div class="g-so">
+            <div class="g-so-box">
+                <!-- 搜索表单 -->
+                <form action="/" method="GET" role="search">>
+                    <input name="query" id="headq" type="text" class="form-control">
+                    <button id="btn" type="submit">搜索</button>
+                </form>
+            </div>
+        </div>
+        <div class="g-ucenter">
+            <div class="user">
+                <a href="{% url 'register' %}" style="color:rgba(255,255,255,0.3);font-size: 30px;">
+                    <span class="glyphicon glyphicon-user"></span>
+                </a>
+            </div>
+            <div class="collect">
+                <a href="#" style="color:rgba(255,255,255,0.3);font-size: 30px;">
+                    <span class="glyphicon glyphicon-heart"></span>
+                </a>
+            </div>
+            <div class="history">
+                <a href="#" style="color:rgba(255,255,255,0.3);font-size: 30px;">
+                    <span class="glyphicon glyphicon-time"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="s-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-20">
+                    <div id="carouselMenu" class="carousel slide">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselMenu" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselMenu" data-slide-to="1"></li>
+                            <li data-target="#carouselMenu" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active"><img src="{{ MEDIA_URL }}imagess/alita.jpg" alt=""/></div>
+                            <div class="item"><img src="{{ MEDIA_URL }}imagess/aa.jpg" alt=""/></div>
+                            <div class="item"><img src="{{ MEDIA_URL }}imagess/xialuo.jpg" alt=""/></div>
+                        </div>
+                        <a class="carousel-control left" href="#carouselMenu" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        </a>
+                        <a class="carousel-control right" href="#carouselMenu" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m_1">
+            <div class="mod">
+                <ul class="nav-guide clearfix">
+                    <li class="nav-group">
+                            <span class="channel1">
+                                <a href="#">国语电影</a>
+                            </span>
+                        <span class="channel1">
+                                <a href="#">港台电影</a>
+                            </span></br>
+                        <span class="channel1">
+                                <a href="#">日韩电影</a>
+                            </span>
+                        <span class="channel1">
+                                <a href="#">欧美电影</a>
+                            </span>
+                    </li>
+                    <li class="nav-group">
+                            <span class="channel1">
+                                <a href="#">动作片</a>
+                            </span>
+                        <span class="channel1">
+                                <a href="#">爱情片</a>
+                            </span></br>
+                        <span class="channel1">
+                                <a href="#">悬疑片</a>
+                            </span>
+                        <span class="channel1">
+                                <a href="#">恐怖片</a>
+                            </span>
+                    </li>
+                    <li class="nav-group">
+                            <span class="channel1">
+                                <a href="#">科幻片</a>
+                            </span>
+                        <span class="channel1">
+                                <a href="#">电视剧</a>
+                            </span></br>
+                        <span class="channel1">
+                                <a href="#">综艺</a>
+                            </span>
+                        <span class="channel1">
+                                <a href="#">动漫</a>
+                            </span>
+                    </li>
+
+                </ul>
+                <div class="glyphicons_group">
+                    <div class="ku">
+                        <a href="#" ;>
+                            <span class="glyphicon glyphicon-film"></span><br/>片库
+                        </a>
+                    </div>
+                    <div class="zhishu">
+                        <a href="#" ;>
+                            <span class="glyphicon glyphicon-signal"></span><br/>排行
+                        </a>
+                    </div>
+                    <div class="download">
+                        <a href="#" ;>
+                            <span class="glyphicon glyphicon-download-alt"></span><br/>下载
+                        </a>
+                    </div>
+                    <div class="code">
+                        <a href="#" ;>
+                            <span class="glyphicon glyphicon-qrcode"></span><br/>App
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="m_2">
+            <ul id="myTab1" class="nav nav-tabs">
+                <li class="active"><a href="#gydy" style="color: #666;">国语电影</a></li>
+                <li><a href="#gtdy" style="color: #666;">港台电影</a></li>
+                <li><a href="#rhdy" style="color: #666;">日韩电影</a></li>
+                <li><a href="#omdy" style="color: #666;">欧美电影</a></li>
+            </ul>
+            <div id="myTabContent1" class="tab-content">
+                <div class="tab-pane fade in active" id="gydy">
+                    <div class="film">
+                        <img src="{{ MEDIA_URL }}images/mainland/fengkuang.jpg" class="img-rounded">
+                        <p>疯狂外星人</p>
+                    </div>
+                    <div class="film">
+                        <img src="{{ MEDIA_URL }}images/mainland/hehuoren.jpg" class="img-rounded">
+                        <p>中国合伙人</p>
+                    </div>
+                    <div class="film">
+                        <a href="play.html" target="_blank" style="text-decoration: none;">
+                            <img src="{{ MEDIA_URL }}images/mainland/hognhai.jpg" class="img-rounded">
+                            <p>红海行动</p>
+                        </a>
+                    </div>
+                    <div class="film">
+                        <img src="{{ MEDIA_URL }}img/mainland/licha.jpg" class="img-rounded">
+                        <p>李茶的姑妈</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/mainland/tangren.jpg" class="img-rounded">
+                        <p>唐人街探案2</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/mainland/wuming.jpg" class="img-rounded">
+                        <p>无名之辈</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/mainland/yaoshen.jpg" class="img-rounded">
+                        <p>我不是药神</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/mainland/taijiong.jpg" class="img-rounded">
+                        <p>泰囧</p>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="gtdy">
+                    <div class="film">
+                        <img src="img/ht/chaidan.jpg" class="img-rounded">
+                        <p>拆弹专家</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/ht/changjiang.jpg" class="img-rounded">
+                        <p>长江7号</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/ht/gongfu.jpg" class="img-rounded">
+                        <p>功夫</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/ht/hanzhan.jpg" class="img-rounded">
+                        <p>寒战</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/ht/shiyue.jpg" class="img-rounded">
+                        <p>十月围城</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/ht/wushuang.jpg" class="img-rounded">
+                        <p>无双</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/ht/xiyou.jpg" class="img-rounded">
+                        <p>西游降魔篇</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/ht/zhuibu.jpg" class="img-rounded">
+                        <p>追捕</p>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="rhdy">
+                    <div class="film">
+                        <img src="img/jk/duzhan.jpg" class="img-rounded">
+                        <p>毒战</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/jk/fengzhiyanse.jpg" class="img-rounded">
+                        <p>风之颜色</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/jk/fushanxing.jpg" class="img-rounded">
+                        <p>釜山行</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/jk/kunchiyan.jpg" class="img-rounded">
+                        <p>昆池岩</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/jk/qinaide.jpg" class="img-rounded">
+                        <p>亲爱的</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/jk/xiaotou.jpg" class="img-rounded">
+                        <p>小偷家族</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/jk/xuehua.jpg" class="img-rounded">
+                        <p>雪花</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/jk/zhihou.jpg" class="img-rounded">
+                        <p>之后</p>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="omdy">
+                    <div class="film">
+                        <img src="img/eu/chubukeji.jpg" class="img-rounded">
+                        <p>触不可及</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/eu/duye.jpg" class="img-rounded">
+                        <p>毒液</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/eu/haiwang.jpg" class="img-rounded">
+                        <p>海王</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/eu/heiyiren.jpg" class="img-rounded">
+                        <p>黑衣人</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/eu/huoxingjiuyuan.jpg" class="img-rounded">
+                        <p>火星救援</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/eu/lvpishu.jpg" class="img-rounded">
+                        <p>绿皮书</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/eu/shentounaiba.jpg" class="img-rounded">
+                        <p>神偷奶爸3</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/eu/yiren.jpg" class="img-rounded">
+                        <p>蚁人2</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m_5">
+            <ul id="myTab" class="nav nav-tabs">
+                <li class="active"><a href="#dlj" style="color: #666;">大陆剧</a></li>
+                <li><a href="#gtj" style="color: #666;">港台剧</a></li>
+                <li><a href="#rhj" style="color: #666;">日韩剧</a></li>
+                <li><a href="#omj" style="color: #666;">欧美剧</a></li>
+            </ul>
+            <div id="myTabContent2" class="tab-content">
+                <div class="tab-pane fade in active" id="dlj">
+                    <div class="film">
+                        <img src="img/teleplay/mainland/dajiangdahe.jpg" class="img-rounded">
+                        <p>大江大河</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/mainland/donggong.jpg" class="img-rounded">
+                        <p>东宫</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/mainland/doutinghao.jpg" class="img-rounded">
+                        <p>都挺好</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/mainland/juesheng.jpg" class="img-rounded">
+                        <p>决胜</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/mainland/laozhongyi.jpg" class="img-rounded">
+                        <p>老中医</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/mainland/tianyiwufeng.jpg" class="img-rounded">
+                        <p>天衣无缝</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/mainland/yanxigonglue.jpg" class="img-rounded">
+                        <p>延禧攻略</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/mainland/zhimahutong.jpg" class="img-rounded">
+                        <p>芝麻胡同</p>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="gtj">
+                    <div class="film">
+                        <img src="img/teleplay/ht/boshizaochen.jpg" class="img-rounded">
+                        <p>波士早晨</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/ht/fuermosinai.jpg" class="img-rounded">
+                        <p>福尔摩师奶</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/ht/kuashidai.jpg" class="img-rounded">
+                        <p>夸世代</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/ht/mangxiadalvshi.jpg" class="img-rounded">
+                        <p>盲侠大律师</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/ht/shituxignzhe.jpg" class="img-rounded">
+                        <p>使徒行者2</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/ht/tangxinfengbao.jpg" class="img-rounded">
+                        <p>溏心风暴3</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/ht/tejiren.jpg" class="img-rounded">
+                        <p>特技人</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/ht/xiondi.jpg" class="img-rounded">
+                        <p>兄弟</p>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="rhj">
+                    <div class="film">
+                        <img src="img/teleplay/jk/chujizhenxin.jpg" class="img-rounded">
+                        <p>触及真心</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/jk/daoju.jpg" class="img-rounded">
+                        <p>道具</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/jk/jiangnanfeiwen.jpg" class="img-rounded">
+                        <p>江南绯闻</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/jk/quantao.jpg" class="img-rounded">
+                        <p>圈套</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/jk/tiankongzhicheng.jpg" class="img-rounded">
+                        <p>天空之城</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/jk/tongtianta.jpg" class="img-rounded">
+                        <p>通天塔</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/jk/wangguo.jpg" class="img-rounded">
+                        <p>王国</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/jk/zuibangdezhaji.jpg" class="img-rounded">
+                        <p>最棒的炸鸡</p>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="omj">
+                    <div class="film">
+                        <img src="img/teleplay/eu/fanwensuoshi.jpg" class="img-rounded">
+                        <p>繁文琐事</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/eu/heipili.jpg" class="img-rounded">
+                        <p>黑霹雳</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/eu/laowantong.jpg" class="img-rounded">
+                        <p>老顽童</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/eu/lvjianxia.jpg" class="img-rounded">
+                        <p>绿箭侠</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/eu/morizhilv.jpg" class="img-rounded">
+                        <p>末日之旅</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/eu/panguozhe.jpg" class="img-rounded">
+                        <p>叛国者</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/eu/shandianxia.jpg" class="img-rounded">
+                        <p>闪电侠</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/teleplay/eu/xingshizourou.jpg" class="img-rounded">
+                        <p>行尸走肉</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m_5">
+            <ul id="myTab3" class="nav nav-tabs">
+                <li class="active"><a href="#dlj" data-toggle="tab" style="color: #666;">动漫</a></li>
+            </ul>
+            <div id="myTabContent3" class="tab-content">
+                <div class="tab-pane fade in active" id="dm">
+                    <div class="film">
+                        <img src="img/dongman/douluodalu.jpg" class="img-rounded">
+                        <p>斗罗大陆</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/dongman/haizeiwang.jpg" class="img-rounded">
+                        <p>海贼王</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/dongman/huanjiewang.jpg" class="img-rounded">
+                        <p>幻界王</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/dongman/huoyingrenzhe.jpg" class="img-rounded">
+                        <p>火影忍者</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/dongman/jinjidejuren.jpg" class="img-rounded">
+                        <p>进击的巨人</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/dongman/longzhuchao.jpg" class="img-rounded">
+                        <p>龙珠超</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/dongman/mingzhentankenan.jpg" class="img-rounded">
+                        <p>名侦探柯南</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/dongman/yiquanchaoren.jpg" class="img-rounded">
+                        <p>一拳超人</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m_5">
+            <ul id="myTab4" class="nav nav-tabs">
+                <li class="active"><a href="#dlj" data-toggle="tab" style="color: #666;">综艺</a></li>
+            </ul>
+            <div id="myTabContent4" class="tab-content">
+                <div class="tab-pane fade in active" id="zongyi">
+                    <div class="film">
+                        <img src="img/zy/geshou2019.jpg" class="img-rounded">
+                        <p>歌手2019</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/zy/huanlexijuren.jpg" class="img-rounded">
+                        <p>欢乐喜剧人</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/zy/jixiantiaozhan.jpg" class="img-rounded">
+                        <p>极限挑战</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/zy/qipashuo.jpg" class="img-rounded">
+                        <p>奇葩说</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/zy/shenglinqijing.jpg" class="img-rounded">
+                        <p>声临其境</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/zy/tianlaizhizhan.jpg" class="img-rounded">
+                        <p>天籁之声</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/zy/tucaodahui.jpg" class="img-rounded">
+                        <p>吐槽大会</p>
+                    </div>
+                    <div class="film">
+                        <img src="img/zy/xiangwangdeshenghuo.jpg" class="img-rounded">
+                        <p>向往的生活</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{#-----------------------------------------------------------------------------------------------------#}
+    {% for film_map in film_list %}
+        <div class="m_5">
+            <ul id="myTab" class="nav nav-tabs">
+                {% for key in film_map %}
+                    {% if forloop.counter == 1 %}
+                        <li class="active"><a href="#{{ key }}" data-toggle="tab" style="color: #666;">{{ key }}</a></li>
+                    {% else %}
+                        <li><a href="#{{ key }}" data-toggle="tab" style="color: #666;">{{ key }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
+            <div id="myTabContent4" class="tab-content">
+                {% for key,film_list in film_map.items %}
+                    {% if forloop.counter == 1 %}
+                        <div class="tab-pane fade in active" id="{{ key }}">
+                            {% for film in film_list %}
+                                <a href="{% url 'play' film.id %}">
+                                    <div class="film">
+                                        <img src="{{ MEDIA_URL }}{{ film.cover }}" class="img-rounded">
+                                        <p>{{ film.name }}</p>
+                                    </div>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="tab-pane fade" id="{{ key }}">
+                            {% for film in film_list %}
+                                <a href="{% url 'play' film.id %}">
+                                    <div class="film">
+                                        <img src="{{ MEDIA_URL }}{{ film.cover }}" class="img-rounded">
+                                        <p>{{ film.name }}</p>
+                                    </div>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+{#-----------------------------------------------------------------------------------------------------#}
+        <div class="f">
+            <div class="m-footer">
+                <div class="about">
+                    <ul class="about-list">
+                        <p>关于我们</p>
+                        <li class="list-item"><a href="#">公司介绍</a></li>
+                        <li class="list-item"><a href="#">新闻动态</a></li>
+                        <li class="list-item"><a href="#">联系方式</a></li>
+                        <li class="list-item"><a href="#">用户协议</a></li>
+                        <li class="list-item"><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="about">
+                    <ul class="about-list">
+                        <p>About Us</p>
+                        <li class="list-item"><a href="#">investor Relations</a></li>
+                        <li class="list-item"><a href="#">Media Center</a></li>
+                    </ul>
+                </div>
+                <div class="about">
+                    <ul class="about-list">
+                        <p>服务</p>
+                        <li class="list-item"><a href="#">客服</a></li>
+                        <li class="list-item"><a href="#">反馈</a></li>
+                        <li class="list-item"><a href="#">投诉建议</a></li>
+                        <li class="list-item"><a href="#">VIP合作</a></li>
+                    </ul>
+                </div>
+                <div class="about">
+                    <ul class="about-list">
+                        <p>招聘英才</p>
+                        <li class="list-item"><a href="#">社会招聘</a></li>
+                        <li class="list-item"><a href="#">校园招聘</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-1">
+                <div class="footer_web">
+                    <a href="http://www.sina.com" target="_blank">新浪</a>
+                    <a href="http://www.iqyi.com" target="_blank">爱奇艺</a>
+                    <a href="https://v.qq.com/" target="_blank">腾讯视频</a>
+                    <a href="http://www.baidu.com" target="_blank ">百度</a>
+                    <a href="http://www.youku.com" target="_blank">优酷</a>
+                </div>
+                <div class="copyright">
+                    <p>Copyright © 1998 - 2019 Movie. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+
+    $(function () {
+        /*
+        * interval为每个轮播项之间的切换时间
+        * wrap定义是否循环轮播
+        *
+        * */
+        $("#carouselMenu").carousel({
+            interval: 5000,
+            wrap: true
+        });
+        $("#myTab a").mousemove(function (e) {
+            $(this).tab('show');
+        });
+
+    })
+</script>
+
+
+</body>
+</html>
